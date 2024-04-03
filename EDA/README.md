@@ -2,6 +2,8 @@
 
 **Exploratory Data Analysis** (*EDA*) is a crucial initial phase in the data analysis process, where the primary objective is to explore and understand the main characteristics of a dataset. It involves a variety of techniques and methods to summarize, visualize, and interpret the data in order to gain insights and identify patterns that may inform further analysis or modeling.
 
+Explore the main concepts of EDA through Python code, available [here](https://github.com/dmydud/math-for-data-science/blob/main/EDA/EDA_python_theory.ipynb).
+
 ## Data Types
 
 There are two basic types of data: **numeric** (*quantitative*) and **categorical** (*qualitative*).
