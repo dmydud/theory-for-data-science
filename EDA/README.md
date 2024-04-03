@@ -43,8 +43,8 @@ Being an outlier in itself does not make a data value invalid or erroneous. Stil
 ### Trimmed Mean
 A variation of the mean is a *trimmed mean* (truncated mean), which you calculate by dropping a fixed number of sorted values at each end and then taking an average of the remaining values.
 
-Representing the sorted values by $x_(1), x_(2), \dots, x_(n)$ where $x_(1)$ is the smallest value and $x_(n)$ the largest, the formula to compute the trimmed mean with $p$ smallest and largest values omitted is:
-$$\text{Trimmed mean}=\bar{x}=\frac{1}{n-2p}\sum_{i=p+1}^{n-p}x_i$$
+Representing the sorted values by $x_{(1)}, x_{(2)}, \dots, x_{(n)}$ where $x_{(1)}$ is the smallest value and $x_{(n)}$ the largest, the formula to compute the trimmed mean with $p$ smallest and largest values omitted is:
+$$\text{Trimmed mean}=\bar{x}=\frac{1}{n-2p}\sum_{i=p+1}^{n-p}x_{(i)}$$
 
 Trimming the bottom and top 10% (a common choice, but it depends on the specific characteristics of the data and the analysis requirements) of the data will provide protection against outliers in all but the smallest data sets. The trimmed mean can be thought of as a compromise between the median and the mean: it is robust to extreme values in the data, but uses more data to calculate the estimate for location.
 
@@ -52,7 +52,8 @@ Trimming the bottom and top 10% (a common choice, but it depends on the specific
 Another type of mean is a *weighted mean*.
 
 Let we have weight $w_i$ for each data value. The formula for a weighted mean is:
-$$\text{Weighted mean}=\bar{x}_w=\frac{\sum_{i=1}^nx_iw_i}{\sum_{i=1}^nw_i}$$
+
+$$\text{Weighted mean} = \bar{x} = {\left(\sum^n_{i=1} x_i w_i\right)} / {\left(\sum^n_{i=1} w_i\right)}$$
 
 There are two primary reasons for employing a weighted mean:
 - Variability in Values: In situations where certain data points exhibit higher variability compared to others, assigning lower weights to these highly variable observations is beneficial. For instance, if we're aggregating data from multiple sensors, and one sensor is less accurate than the others, we might opt to reduce the influence of data from that sensor by assigning it a lower weight.
@@ -173,13 +174,13 @@ Variables X and Y, each with measured data, are considered positively correlated
 
 ### Pearson's Correlation Coefficient
 Pearson's correlation coefficient, denoted as $r$, is calculated using the formula:
-$$r = \frac{\sum^n_{i=1}(x_i-\bar{x})(y_i-\bar{y})}{(n-1)s_xs_y}$$
-where \( -1 \leq r \leq 1 \). 
+$$r = \left(\sum^n_{i=1}(x_i-\bar{x})(y_i-\bar{y})\right) / \left((n-1)s_xs_y\right)$$
+where $-1 \leq r \leq 1$. 
 
 ### Spearman's Rank Correlation Coefficient
 Spearman's rank correlation coefficient, denoted as $\rho$, is computed as:
-$$\rho = 1 - \frac{6\sum^n_{i=1}(R(x_i) - R(y_i))}{n(n^2-1)}$$
-where $ -1 \leq \rho \leq 1 $.
+$$\rho = 1 - \left(6\sum^n_{i=1}(R(x_i) - R(y_i))\right) / \left(n(n^2-1\right))$$
+where $-1 \leq \rho \leq 1$.
 
 These coefficients are based on the rank of the data and are robust to outliers, handling certain nonlinear relationships well.
 
