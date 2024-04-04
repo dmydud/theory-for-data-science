@@ -1,6 +1,6 @@
-# Math for Data Science
+# Theory for Data Science
 
-Welcome to the **Math for Data Science** repository! This repository is dedicated to exploring fundamental mathematical concepts essential for understanding and applying data science techniques.
+Welcome to the **Theory for Data Science** repository! This repository is dedicated to exploring fundamental concepts essential for understanding and applying data science techniques.
 
 ## Overview
 
@@ -10,7 +10,7 @@ Data science relies heavily on mathematical principles to extract insights from 
 
 - Probability And Statistics:
   - [**Exploratory Data Analysis (EDA)**](EDA)
-  
+
 - Models:
   - [**Naive Bayes Classifier**](Models/Naive-Bayes-Classifier)
 
@@ -18,5 +18,5 @@ Data science relies heavily on mathematical principles to extract insights from 
 
 In each topic you'll find:
 
-- **Markdown files**: These files contain descriptions and examples of topic.
-- **Jupyter Notebooks**: Explore the main concepts of topic through Python code.
+- **Markdown files**: These files contain descriptions and examples of the topic.
+- **Jupyter Notebooks**: Explore the main concepts of the topic through Python code.
