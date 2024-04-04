@@ -4,16 +4,19 @@ Welcome to the **Math for Data Science** repository! This repository is dedicate
 
 ## Overview
 
-Data science relies heavily on mathematical principles to extract insights from data effectively. Whether you're a beginner or an experienced practitioner, having a strong foundation in mathematics is crucial for mastering data science concepts.
+Data science relies heavily on mathematical principles to extract insights from data effectively. Whether you're a beginner or an experienced practitioner, having a strong foundation in mathematics is crucial for mastering data science concepts and models.
 
 ## Contents
 
 - Probability And Statistics:
-  - [**Exploratory Data Analysis (EDA)**](https://github.com/dmydud/math-for-data-science/tree/main/EDA)
+  - [**Exploratory Data Analysis (EDA)**](EDA)
+  
+- Models:
+  - [**Naive Bayes Classifier**](Models/Naive-Bayes-Classifier)
 
 ### Materials
 
 In each topic you'll find:
 
-- **Markdown files**: These files contain descriptions and examples of mathematical disciplines.
-- **Jupyter Notebooks**: Explore the main concepts of each discipline through Python code.
+- **Markdown files**: These files contain descriptions and examples of topic.
+- **Jupyter Notebooks**: Explore the main concepts of topic through Python code.
