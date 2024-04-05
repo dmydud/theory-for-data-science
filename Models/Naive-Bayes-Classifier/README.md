@@ -53,7 +53,7 @@ Finally, it selects the class with the highest posterior probability as the pred
 
 $$\hat{Y} = \arg\max_Y P(Y|X).$$
 
-### Discrete Feature
+## Multinomial Naive Bayes (Discrete Features)
 In the Naive Bayes Classifier, discrete features are those whose values are categorical or countable, often represented as integers or symbols. These features are typically encountered in text classification tasks, where words or tokens are used as features.
 
 The probability estimation for discrete features in Naive Bayes classifiers involves considering the frequency of each feature occurring within each class.
@@ -68,12 +68,12 @@ Where:
 - $n$ is the total number of features.
 - $\alpha$ is a smoothing parameter, often set to 1 (Laplace smoothing), as discussed in the [Zero Probability Issue](#### Zero Probability Issue).
 
-#### Zero Probability Issue
+### Zero Probability Issue
 If the probability of a feature is 0 because it was not present in the training data, the classifier will always classify an object with that feature the same way, regardless of other features.
 
 To address this problem, we can apply Laplace smoothing by adding $\alpha$ to each count of a feature in the data. For example, $\alpha = 1$. With this adjustment, even if a feature was not observed in the training data, it will have a nonzero probability assigned to it during calculation, ensuring that no probability is exactly 0.
 
-### Continuous feature
+## Gaussian Naive Bayes (Continuous Features)
 When dealing with continuous features in the Naive Bayes Classifier, using a Gaussian distribution is a common choice. The probability density function (PDF) of a Gaussian distribution, also known as the normal distribution, is given by:
 $$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$$
 Where:
@@ -83,7 +83,7 @@ Where:
 
 This formula represents the likelihood of observing a particular value $x$ given the mean $\mu$ and variance $\sigma^2$ of the feature.
 
-#### Underflow
+### Underflow
 When dealing with probabilities, especially in the context of Naive Bayes classifiers, it's common to encounter extremely small values. These small probabilities can result from multiplying many likelihoods together, particularly in cases where there are numerous features or when dealing with continuous variables.
 
 In computing environments with limited precision, such as floating-point arithmetic in programming languages, multiplying together a large number of small probabilities can lead to numerical underflow. Underflow occurs when the result of a computation is smaller in magnitude than the smallest representable number, causing it to be approximated as zero.
@@ -92,6 +92,28 @@ To address the issue of underflow, a common strategy is to work with logarithms 
 
 By taking the logarithm of posterior probabilities, we transform multiplication into addition, which is numerically more stable. This prevents the likelihoods from becoming excessively small and helps mitigate the risk of underflow.
 
+## Bernoulli Naive Bayes (Binary Features)
+
+In Bernoulli Naive Bayes, features are binary variables indicating whether a particular feature is present or absent in a given instance. This variant is often used in text classification tasks where the presence or absence of words in documents is considered.
+
+The probability estimation for Bernoulli Naive Bayes involves calculating the probability of a feature being present or absent within each class.
+
+The formula for estimating the likelihood of a binary feature $x_i$ given a class $Y$ is:
+
+$$P(x_i|Y) = 
+\begin{cases} 
+p_i & \text{if } x_i \text{ is present in } Y \\
+1 - p_i & \text{if } x_i \text{ is absent in } Y 
+\end{cases}$$
+
+Where:
+- $p_i$ is the probability of feature $x_i$ being present in instances belonging to class $Y$.
+
+## Complement Naive Bayes
+Complement Naive Bayes is a variant of the Naive Bayes Classifier that is **particularly useful for imbalanced datasets**, where one class significantly outnumbers the other. It essentially calculates probabilities with respect to the complement of each class and then selects the class with the smallest complementary probability. This approach tends to perform well in text classification tasks, especially sentiment analysis.
+
+## Hybrid Naive Bayes
+Hybrid Naive Bayes combines multiple Naive Bayes models, each specialized for different types of features, into a single classifier. For example, it can incorporate both Gaussian Naive Bayes for continuous features and Bernoulli Naive Bayes for binary features. This approach allows the classifier to handle datasets with mixed feature types more effectively and can potentially improve classification accuracy.
 
 ## Advantages of Naive Bayes Classifier
 
