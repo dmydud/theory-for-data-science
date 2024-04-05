@@ -1,6 +1,24 @@
 # Naive Bayes Classifier
 The Naive Bayes Classifier is a simple yet powerful probabilistic model commonly used in machine learning for classification tasks. It is based on Bayes' Theorem, which provides a framework for making predictions based on prior knowledge and observed evidence.
 
+Explore the Naive Bayes Classifier through Python code, available [here](Naive_Bayes_Classifier.ipynb).
+
+## Table of Contents
+- [Bayes' Theorem](##bayes-theorem)
+- [Naive Assumption](##naive-assumption)
+- [Algorithm](##algorithm)
+  - [Training Phase](###training-phase)
+  - [Prediction Phase](###prediction-phase)
+- [Types of Naive Bayes Classifiers](##types-of-naive-bayes-classifiers)
+  - [Multinomial Naive Bayes](###multinomial-naive-bayes)
+  - [Gaussian Naive Bayes](###gaussian-naive-bayes)
+  - [Bernoulli Naive Bayes](###bernoulli-naive-bayes)
+  - [Complement Naive Bayes](###complement-naive-bayes)
+  - [Hybrid Naive Bayes](###hybrid-naive-bayes)
+- [Advantages of Naive Bayes Classifier](##advantages-of-naive-bayes-classifier)
+- [Limitations of Naive Bayes Classifier](##limitations-of-naive-bayes-classifier)
+- [References](##references)
+
 ## Bayes' Theorem
 Bayes' Theorem, a fundamental concept in probability theory, forms the theoretical foundation of the Naive Bayes Classifier. It states:
 $$P(Y|X)=P(X|Y)P(Y)\Big/P(X)$$
