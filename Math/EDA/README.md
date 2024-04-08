@@ -34,8 +34,11 @@ A basic step in exploring data is obtaining a "typical value" for each feature (
 ### Mean
 The most basic central tendency is the mean, or average value. The symbol $\bar{x}$ being used to represent the mean of a sample from a population.
 
-The formula to compute the mean for a set of $n$ values $x_1, x_2, \dots, x_n$ is:
+The formula to compute the mean for a sample of $n$ values $x_1, x_2, \dots, x_n$ is:
 $$\text{Mean}=\bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i$$
+
+
+**Note:** For population mean, statisticians use the $\mu$ symbol.
 
 ### Outliers
 There are other measures of central tendency known as robust measures, which are not influenced by *outliers* (extreme cases) that could skew the results. An outlier is any value that is very distant from the other values in a data set.
@@ -71,6 +74,32 @@ For the same reasons that one uses a weighted mean, it is also possible to compu
 
 Like the median, the weighted median is robust to outliers.
 
+### Expected Value
+The expected value, denoted as $\mathbb{E}[X]$, for variable $X$ is determined by multiplying each outcome by its probability of occurrence and then summing these products.
+
+The expected value essentially functions as a form of weighted mean, incorporating notions of future expectations and probability weights, often informed by subjective judgment.
+
+#### Formulas for Expected Value
+
+For a discrete random variable $X$, the expected value is calculated as follows:
+$$\mathbb{E}[X] = \sum_x x \cdot p_X(x)$$
+
+For a continuous random variable $X$, the expected value is given by:
+$$\mathbb{E}[X] = \int_{-\infty}^\infty x \cdot p_X(x) \, dx$$
+
+#### Properties of Expected Value
+
+The expected value is a linear operator, so it satisfies the following properties:
+
+1. Linearity:
+$$\mathbb{E}[aX + b] = a\mathbb{E}[X] + b$$
+
+2. Constant:
+$$\mathbb{E}[c] = c$$
+
+3. Additivity:
+$$\mathbb{E}[X+Y]=\mathbb{E}[X]+\mathbb{E}[Y]$$
+
 ## Estimates of Variability
 *Variability*, also referred to as *dispersion*, measure whether the data values are tightly clustered or spread out.
 
@@ -85,15 +114,34 @@ $$\text{Mean absolute deviation}=\frac{1}{n}\sum^n_{i=1}|x_i-\bar{x}|$$
 
 The mean absolute deviation provides a measure of the average distance between each data point and the mean, irrespective of their direction.
 
-### Variance and the Standard Deviation
-The best-known estimates of variability are the *variance* and the *standard deviation*, which are based on squared deviations. The variance is the average of the squared deviations from the mean, and the standard deviation is the square root of the variance.
 
-$$\text{Variance}=s^2=\frac{1}{n-1}\sum^n_{i=1}(x_i-\bar{x})^2$$
-$$\text{Standard deviation}=s=\sqrt{\text{Variance}}$$
+### Variance
+Two common measures of variability are the *variance* and the *standard deviation*, both of which are based on squared deviations. The variance represents the average of the squared deviations from the mean, providing insight into the spread of data points around the mean.
 
-The standard deviation is much easier to interpret than the variance since it is on the same scale as the original data.
+#### Population Variance
+The population variance, denoted as $\sigma^2$, is defined as the expected value of the squared deviations from the population mean ($\mathbb{E}[X]$):
 
-The variance and standard devia‐ tion are especially sensitive to outliers since they are based on the squared deviations.
+$$Var(X)=\sigma_X^2 = \mathbb{E}[(X - \mathbb{E}[X])^2] = \mathbb{E}[X^2] - (\mathbb{E}[X])^2$$
+
+For a constant $a$ and $b$:
+
+$$Var(aX + b) = a^2 Var(X)$$
+
+#### Sample Variance
+In a sample of size $n$, the sample variance ($s^2$) is calculated as:
+
+$$s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
+
+Where $\bar{x}$ represents the sample mean.
+
+#### Standard Deviation
+The standard deviation is the square root of the variance, providing a measure of the average distance of data points from the mean. It is denoted as $\sigma$ for the population standard deviation and $s$ for the sample standard deviation:
+
+$$\text{Standard deviation} = \sqrt{\text{Variance}}$$
+
+The standard deviation is often preferred for interpretation as it is on the same scale as the original data.
+
+Both the variance and standard deviation are sensitive to outliers due to their reliance on squared deviations, which magnify the impact of extreme values on the overall measure of variability.
 
 ### Median Absolute Deviation from the Median
 A robust estimate of variability is the *median absolute deviation from the median* or MAD:
@@ -114,6 +162,23 @@ To avoid the sensitivity to outliers, we can look at the range of the data after
 The percentile is essentially the same as a *quantile*, with quantiles indexed by fractions (so the .8 quan‐ tile is the same as the 80th percentile).
 
 A common measurement of variability is the difference between the 25th percentile and the 75th percentile, called the *interquartile range* (or IQR).
+
+## Statistical Moments with Skewness and Kurtosis
+The $k$ statistical moment of a probability distribution $X$ is $\mathbb{E}[X^k]$.
+
+Then the first moment is the expected value ($\mathbb{E}[X]$), the second central moment is the variance, the third standardized moment is the *skewness*, and the fourth standardized moment is the *kurtosis*. 
+
+Skewness measures the asymmetry of the probability distribution of a real-valued random variable about its mean. A skewness value of zero indicates a perfectly symmetrical distribution, while positive or negative skewness indicates the distribution is skewed to the right or left, respectively.
+
+Kurtosis quantifies the "tailedness" of the probability distribution of a real-valued random variable. It measures the thickness of the tails relative to the tails of a normal distribution. A kurtosis value of zero indicates the distribution has the same tail behavior as a normal distribution. Positive kurtosis (leptokurtic) indicates heavier tails, while negative kurtosis (platykurtic) indicates lighter tails compared to a normal distribution.
+
+$$\text{Expected Value}=\mu=\mathbb{E}[X]$$
+
+$$\text{Variance}=\sigma^2=\mathbb{E}\left[\left(X-\mu\right)^2\right]$$
+
+$$\text{Skewness}=\mathbb{E}\left[\left(\frac{X-\mu}{\sigma}\right)^3\right]$$
+
+$$\text{Kurtosis}=\mathbb{E}\left[\left(\frac{X-\mu}{\sigma}\right)^4\right]$$
 
 ## Exploring the Data Distribution
 Each of the estimates we’ve covered sums up the data in a single number to describe the location or variability of the data. It is also useful to explore how the data is dis‐ tributed overall.
@@ -139,9 +204,6 @@ A histogram is a way to visualize a frequency table, with bins on the x-axis and
 ![Example of the histogram](media/histogram.png)
 Example of the histogram
 
-### Statistical Moments
-If the function is a probability distribution, then the first moment is the expected value, the second central moment is the variance, the third standardized moment is the *skewness*, and the fourth standardized moment is the *kurtosis*.
-
 ### Density Plots
 Related to the histogram is a density plot, which shows the distribution of data values as a continuous line. A density plot can be thought of as a smoothed histogram, although it is typically computed directly from the data through a *kernel density estimate*.
 
@@ -165,11 +227,6 @@ Example of the pie chart
 
 ### Mode
 The *mode* is the value—or values in the case of a tie—that occurs most frequently in the data.
-
-### Expected Value
-A distinct type of categorical data pertains to categories representing or aligning with discrete values on the same scale. The *expected value* is determined by multiplying each outcome by its probability of occurrence and then summing these products.
-
-The expected value essentially functions as a form of weighted mean, incorporating notions of future expectations and probability weights, often informed by subjective judgment.
 
 ## Correlation
 Variables X and Y, each with measured data, are considered positively correlated if high values of X correspond to high values of Y, and low values of X correspond to low values of Y. Conversely, if high values of X align with low values of Y, and vice versa, the variables are negatively correlated.
