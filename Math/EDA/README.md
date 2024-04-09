@@ -150,7 +150,7 @@ where $m$ is the median.
 
 Like the median, the MAD is not influenced by extreme values.
 
-Sometimes, the median absolute devia‐ tion is multiplied by a constant scaling factor to put the MAD on the same scale as the standard deviation in the case of a normal dis‐ tribution. The commonly used factor of 1.4826 means that 50% of the normal distribution fall within the range ±MAD.
+Sometimes, the median absolute deviation is multiplied by a constant scaling factor to put the MAD on the same scale as the standard deviation in the case of a normal distribution. The commonly used factor of 1.4826 means that 50% of the normal distribution fall within the range ±MAD.
 
 ### Estimates Based on Percentiles
 The most basic measure is the *range*: the difference between the largest and smallest numbers. 
@@ -159,7 +159,7 @@ The minimum and maximum values themselves are useful to know and are helpful in 
 
 To avoid the sensitivity to outliers, we can look at the range of the data after dropping values from each end. Formally, these types of estimates are based on differences between percentiles. In a data set, the $P$th percentile is a value such that at least $P$ percent of the values take on this value or less and at least $(100 – P)$ percent of the values take on this value or more.
 
-The percentile is essentially the same as a *quantile*, with quantiles indexed by fractions (so the .8 quan‐ tile is the same as the 80th percentile).
+The percentile is essentially the same as a *quantile*, with quantiles indexed by fractions (so the .8 quantile is the same as the 80th percentile).
 
 A common measurement of variability is the difference between the 25th percentile and the 75th percentile, called the *interquartile range* (or IQR).
 
@@ -181,10 +181,12 @@ $$\text{Skewness}=\mathbb{E}\left[\left(\frac{X-\mu}{\sigma}\right)^3\right]$$
 $$\text{Kurtosis}=\mathbb{E}\left[\left(\frac{X-\mu}{\sigma}\right)^4\right]$$
 
 ## Exploring the Data Distribution
-Each of the estimates we’ve covered sums up the data in a single number to describe the location or variability of the data. It is also useful to explore how the data is dis‐ tributed overall.
+Each of the estimates we’ve covered sums up the data in a single number to describe the location or variability of the data. It is also useful to explore how the data is distributed overall.
 
-### Percentiles
+### Percentiles and Quartiles
 Percentiles are also valuable for summarizing the entire distribution. It is common to report the *quartiles* (25th, 50th, and 75th percentiles) and the *deciles* (the 10th, 20th, ..., 90th percentiles).
+
+$$25th \text{ quartile} = q_{0.25} \equiv 1st \text{ quartile} = Q_1$$
 
 ### Boxplot
 *Boxplot* are based on percentiles and give a quick way to visualize the distribution of data.
@@ -192,12 +194,12 @@ Percentiles are also valuable for summarizing the entire distribution. It is com
 ![Example of the boxplot](media/boxplot.png)
 Example of the boxplot
 
-The top and bottom of the box are the 75th and 25th percentiles, respectively. The median is shown by the horizontal line in the box. The dashed lines, referred to as *whiskers*, extend from the top and bottom of the box to indicate the range for the bulk of the data. By default, the R function extends the whiskers to the furthest point beyond the box, except that it will not go beyond 1.5 times the IQR. Matplotlib uses the same imple‐ mentation; other software may use a different rule.
+The top and bottom of the box are the 75th and 25th percentiles, respectively. The median is shown by the horizontal line in the box. The dashed lines, referred to as *whiskers*, extend from the top and bottom of the box to indicate the range for the bulk of the data. By default, the R function extends the whiskers to the furthest point beyond the box, except that it will not go beyond 1.5 times the IQR. Matplotlib uses the same implementation; other software may use a different rule.
 
-Any data outside of the whiskers is plotted as single points or circles (often consid‐ ered outliers).
+Any data outside of the whiskers is plotted as single points or circles (often considered outliers).
 
 ### Frequency Tables and Histograms
-A frequency table of a variable divides up the variable range into equally spaced seg‐ ments and tells us how many values fall within each segment.
+A frequency table of a variable divides up the variable range into equally spaced segments and tells us how many values fall within each segment.
 
 A histogram is a way to visualize a frequency table, with bins on the x-axis and the data count on the y-axis.
 
@@ -211,6 +213,14 @@ Related to the histogram is a density plot, which shows the distribution of data
 Example of the density plot
 
 Note that the total area under the density curve = 1, and instead of counts in bins you calculate areas under the curve between any two points on the x-axis, which correspond to the proportion of the distribution lying between those two points.
+
+### Violin plot
+When comparing the distributions of a numeric variable across different categories of a categorical variable, boxplots offer a straightforward visualization.
+
+An alternative to boxplots is the violin plot, which presents the density estimate along the y-axis. The shape resembles a violin, created by mirroring and flipping the density estimate. Violin plots excel at revealing subtle nuances in the distribution, whereas boxplots are better at highlighting outliers.
+
+![Example of the violin plot](media/violinplot.png)
+Example of the violin plot
 
 ## Exploring Binary and Categorical Data
 Summarizing a binary variable or a categorical variable with a few categories is relatively straightforward: we calculate the proportions of the relevant categories.
@@ -231,14 +241,17 @@ The *mode* is the value—or values in the case of a tie—that occurs most freq
 ## Correlation
 Variables X and Y, each with measured data, are considered positively correlated if high values of X correspond to high values of Y, and low values of X correspond to low values of Y. Conversely, if high values of X align with low values of Y, and vice versa, the variables are negatively correlated.
 
+### Covariance
+$$Cov(X, Y)=\frac{1}{n-1}\sum^n_{i=1} (x_i-\bar{x})(y_i-\bar{y})$$
+
 ### Pearson's Correlation Coefficient
 Pearson's correlation coefficient, denoted as $r$, is calculated using the formula:
-$$r = \left(\sum^n_{i=1}(x_i-\bar{x})(y_i-\bar{y})\right) / \left((n-1)s_xs_y\right)$$
+$$r = Cov(X, Y) \Big/ s_xs_y = \left(\sum^n_{i=1}(x_i-\bar{x})(y_i-\bar{y})\right) \Bigg/ \Bigg((n-1)s_xs_y\Bigg)$$
 where $-1 \leq r \leq 1$. 
 
 ### Spearman's Rank Correlation Coefficient
 Spearman's rank correlation coefficient, denoted as $\rho$, is computed as:
-$$\rho = 1 - \left(6\sum^n_{i=1}(R(x_i) - R(y_i))\right) / \left(n(n^2-1\right))$$
+$$\rho = 1 - \left(6\sum^n_{i=1}(R(x_i) - R(y_i))\right) \Bigg/ \Bigg(n(n^2-1\Bigg))$$
 where $-1 \leq \rho \leq 1$.
 
 These coefficients are based on the rank of the data and are robust to outliers, handling certain nonlinear relationships well.
@@ -277,14 +290,6 @@ Heatmaps, hexagonal binning, and contour plots all offer visual representations 
 ### Two Categorical Variables
 Contingency tables are a useful tool for summarizing two categorical variables. These tables display counts by category and can optionally include column and total percentages.
 
-### Categorical and Numeric Data
-When comparing the distributions of a numeric variable across different categories of a categorical variable, boxplots offer a straightforward visualization.
-
-An alternative to boxplots is the violin plot, which presents the density estimate along the y-axis. The shape resembles a violin, created by mirroring and flipping the density estimate. Violin plots excel at revealing subtle nuances in the distribution, whereas boxplots are better at highlighting outliers.
-
-![Example of the violin plot](media/violinplot.png)
-Example of the violin plot
-
 ### Visualizing Multiple Variables
 To extend the comparison of variables beyond two, techniques like scatterplots, hexagonal binning, and boxplots can be employed through conditioning.
 
@@ -292,4 +297,5 @@ To extend the comparison of variables beyond two, techniques like scatterplots, 
 Example of the conditioning plot
 
 ## References:
-- Bruce, P., & Bruce, A. (2017). Practical statistics for data scientists. O’Reilly Media.
+1. Bruce, P., & Bruce, A. (2017). Practical statistics for data scientists. O’Reilly Media.
+2. Serrano, L. (Instructor). (2024). _Probability & Statistics for Machine Learning & Data Science_. Coursera. https://www.coursera.org/learn/machine-learning-probability-and-statistics
