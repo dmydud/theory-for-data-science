@@ -8,9 +8,9 @@ Data science relies heavily on mathematical principles to extract insights from 
 
 ## Contents
 
-- Probability And Statistics:
-  - [**Exploratory Data Analysis (EDA)**](Math/EDA)
-  - [**Probability Distributions**](Math/Probability-Distributions)
+- Math:
+  - [Probability And Statistics [Basic]](Math/ProbStatBasic)
+  - [Probability And Statistics](Math/ProbStat)
 
 - Models:
   - [**Naive Bayes Classifier**](Models/Naive-Bayes-Classifier)
