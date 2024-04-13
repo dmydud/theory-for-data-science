@@ -4,6 +4,47 @@
 
 Explore the main concepts of EDA through Python code, available [here](https://github.com/dmydud/math-for-data-science/blob/main/EDA/EDA_python_theory.ipynb).
 
+## Table of Contents
+
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+  - [Data Types](#data-types)
+  - [Tabular (Rectangular) Data](#tabular-rectangular-data)
+  - [Central Tendency](#central-tendency)
+    - [Mean](#mean)
+    - [Outliers](#outliers)
+    - [Trimmed Mean](#trimmed-mean)
+    - [Weighted Mean](#weighted-mean)
+    - [Median](#median)
+    - [Weighted Median](#weighted-median)
+    - [Expected Value](#expected-value)
+  - [Estimates of Variability](#estimates-of-variability)
+    - [Deviation](#deviation)
+    - [Mean Absolute Deviation](#mean-absolute-deviation)
+    - [Variance](#variance)
+    - [Standard Deviation](#standard-deviation)
+    - [Median Absolute Deviation from the Median](#median-absolute-deviation-from-the-median)
+    - [Estimates Based on Percentiles](#estimates-based-on-percentiles)
+  - [Statistical Moments with Skewness and Kurtosis](#statistical-moments-with-skewness-and-kurtosis)
+  - [Exploring the Data Distribution](#exploring-the-data-distribution)
+    - [Percentiles and Quartiles](#percentiles-and-quartiles)
+    - [Boxplot](#boxplot)
+    - [Frequency Tables and Histograms](#frequency-tables-and-histograms)
+    - [Density Plots](#density-plots)
+    - [Violin plot](#violin-plot)
+  - [Exploring Binary and Categorical Data](#exploring-binary-and-categorical-data)
+    - [Mode](#mode)
+  - [Correlation](#correlation)
+    - [Covariance](#covariance)
+    - [Pearson's Correlation Coefficient](#pearsons-correlation-coefficient)
+    - [Spearman's Rank Correlation Coefficient](#spearmans-rank-correlation-coefficient)
+    - [Correlation Matrix](#correlation-matrix)
+    - [Scatterplots](#scatterplots)
+  - [Exploring Two or More Variables](#exploring-two-or-more-variables)
+    - [Hexagonal Binning and Contours](#hexagonal-binning-and-contours)
+    - [Two Categorical Variables](#two-categorical-variables)
+    - [Visualizing Multiple Variables](#visualizing-multiple-variables)
+
+
 ## Data Types
 
 There are two basic types of data: **numeric** (*quantitative*) and **categorical** (*qualitative*).
