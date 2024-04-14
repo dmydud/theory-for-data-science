@@ -10,4 +10,5 @@ This repository aims to provide an understanding of probability and statistics c
 1. [Set Notation](Set-Notation.md)
 2. [Probability Concepts](Probability-Concepts.md)
 3. [Expected Value and Variance of Population](ExpVal-Var-Population.md)
-4. [Correlation](Correlation.md)
+4. [Random Vectors](Random-Vectors.md)
+5. [Correlation](Correlation.md)
