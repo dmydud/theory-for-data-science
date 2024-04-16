@@ -14,6 +14,8 @@ Data science relies heavily on mathematical principles to extract insights from 
 
 - Models:
   - [**Naive Bayes Classifier**](Models/Naive-Bayes-Classifier)
+  
+- [TensorFlow](TensorFlow)
 
 ### Materials
 
