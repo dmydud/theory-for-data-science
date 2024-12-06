@@ -26,4 +26,27 @@ In SQL, commands are categorized into different groups based on their functional
 | **DCL**        | Controls access to data and objects           | `GRANT`, `REVOKE`               | Manages user permissions and controls access to database objects for security purposes.       |  
 | **TCL**        | Manages transactions for data consistency     | `COMMIT`, `ROLLBACK`, `SAVEPOINT` | Ensures data integrity by handling transactions and their effects on the database state.      |  
 
-Let me know if there’s anything else you’d like to adjust!
+### SQL Joins
+In SQL, JOIN is used to combine data from two or more tables based on a related column. Joins are essential for working with relational databases, as they allow you to retrieve meaningful information spread across multiple tables.
+
+| **Join Type**        | **Description**                                                                                     |  
+|----------------------|---------------------------------------------------------------------------------------------------|  
+| **INNER JOIN**       | Returns rows with matching values in both tables.                                                 |  
+| **LEFT JOIN**        | Returns all rows from the left table and matching rows from the right table. Rows from the left table without matches in the right table will have `NULL` values. |  
+| **RIGHT JOIN**       | Returns all rows from the right table and matching rows from the left table. Rows from the right table without matches in the left table will have `NULL` values. |  
+| **FULL OUTER JOIN**  | Returns rows when there is a match in either table, combining the results of `LEFT JOIN` and `RIGHT JOIN`. |  
+| **CROSS JOIN**       | Produces the Cartesian product of both tables, pairing every row in the first table with every row in the second table. |  
+| **SELF JOIN**        | Joins a table to itself, often used to compare rows within the same table or work with hierarchical data. |  
+
+### SQL Joins  
+
+In SQL, JOIN is used to combine data from two or more tables based on a related column. Joins are essential for working with relational databases, as they allow you to retrieve meaningful information spread across multiple tables.  
+
+| **Join Type**        | **Description**                                                                                     |  
+|----------------------|---------------------------------------------------------------------------------------------------|  
+| **INNER JOIN**       | Returns rows with matching values in both tables.                                                 |  
+| **LEFT JOIN**        | Returns all rows from the left table and matching rows from the right table. Rows from the left table without matches in the right table will have `NULL` values. |  
+| **RIGHT JOIN**       | Returns all rows from the right table and matching rows from the left table. Rows from the right table without matches in the left table will have `NULL` values. |  
+| **FULL OUTER JOIN**  | Returns rows when there is a match in either table, combining the results of `LEFT JOIN` and `RIGHT JOIN`. |  
+| **CROSS JOIN**       | Produces the Cartesian product of both tables, pairing every row in the first table with every row in the second table. |  
+| **SELF JOIN**        | Joins a table to itself, often used to compare rows within the same table or work with hierarchical data. |  
