@@ -38,7 +38,7 @@ Here:
 
 > **Insight**: $A\mathbf{x}$ represents a **linear combination of the columns of $A$**.
 
-![Row picture animation](RowPicture.mp4)
+![Row picture animation](Linear Algebra/RowPicture.mp4)
 
 ## Column Perspective
 
@@ -48,7 +48,7 @@ $$x \begin{bmatrix} 2 \\\ -1 \end{bmatrix} + y \begin{bmatrix} -1 \\\ 2 \end{bma
 
 This illustrates the geometric interpretation: the system seeks coefficients $x$ and $y$ that linearly combine the columns of $A$ to produce $\mathbf{b}$.
 
-![Column picture animation](ColumnPicture.mp4)
+![Column picture animation](Linear Algebra/ColumnPicture.mp4
 
 ## Column Space $C(A)$
 
