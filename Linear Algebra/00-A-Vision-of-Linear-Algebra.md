@@ -356,3 +356,59 @@ $$A = QR = \frac{1}{2}\begin{bmatrix}1 \& -1 \& 1 \\\ 1 \& 1 \& -1 \\\ 1 \& 1 \&
 $$\begin{bmatrix}2 \& 3 \& 2 \\\ 0 \& 5 \& -2 \\\ 0 \& 0 \& 4\end{bmatrix}\begin{bmatrix}x_1 \\\ x_2 \\\ x_3\end{bmatrix} = \frac{1}{2}\begin{bmatrix}1 \& 1 \& 1 \& 1 \\\ -1 \& 1 \& 1 \& -1 \\\ 1 \& -1 \& 1 \& -1\end{bmatrix}\begin{bmatrix} 2 \\\ -3 \\\ 5 \\\ 1 \end{bmatrix} = \begin{bmatrix} 2.5 \\\ -0.5 \\\ 4.5 \end{bmatrix}$$
 
 $$\begin{cases} x_1 = -0.4 \\\ x_2 = 0.35 \\\ x_3 = 1.125\end{cases}$$
+
+## Symmetric Matrices and Eigenvector Orthogonality
+
+A symmetric matrix $S$ (i.e., $S = S^T$) has the special property that its eigenvectors are orthogonal. This means that for any two eigenvectors $x$ and $y$ corresponding to distinct eigenvalues of $S$, $x^T y = 0$.
+
+Let the eigenvectors of $S$ be denoted as $q_1, q_2, \ldots, q_n$, and their corresponding eigenvalues as $\lambda_1, \lambda_2, \ldots, \lambda_n$. The eigendecomposition of $S$ can be expressed as:
+
+$$S \begin{bmatrix} \| \& \& \| \\\ q_1 \& \cdots \& q_n \\\ \| \& \& \| \end{bmatrix} 
+= \begin{bmatrix} \| \& \& \| \\\ q_1 \& \cdots \& q_n \\\ \| \& \& \| \end{bmatrix} 
+\begin{bmatrix} \lambda_1 \& \& \\\  \& \cdots \&  \\\  \& \& \lambda_n \end{bmatrix}.$$
+
+This can also be written compactly as:
+
+$$S Q = Q \Lambda,$$
+
+
+
+where:
+- $Q$ is the matrix of eigenvectors,
+- $\Lambda = \text{diag}(\lambda_1, \lambda_2, \ldots, \lambda_n)$ is the diagonal matrix of eigenvalues.
+
+For symmetric matrices, $Q$ is an orthogonal matrix ($Q^T Q = I$), so the eigendecomposition becomes:
+
+$$S = Q \Lambda Q^T.$$
+
+## General Matrices and Eigendecomposition
+
+If $A$ is not symmetric, its eigenvectors are generally not orthogonal, and the decomposition takes a slightly different form:
+
+$$A X = X \Lambda,$$
+
+where:
+- $X$ is the matrix of eigenvectors,
+- $\Lambda = \text{diag}(\lambda_1, \lambda_2, \ldots, \lambda_n)$.
+
+Here, $A$ can be expressed as:
+
+$$A = X \Lambda X^{-1}.$$
+
+## Powers of a Matrix Using Eigendecomposition
+
+The eigendecomposition of a matrix $A$ allows us to compute powers of $A$ efficiently. Given:
+
+$$A^n x = \lambda^n x,$$
+
+for an eigenvalue $\lambda$ and corresponding eigenvector $x$, we can write:
+
+$$A^n = (X \Lambda X^{-1})(X \Lambda X^{-1}) \cdots (X \Lambda X^{-1}).$$
+
+Simplifying using the associative property:
+
+$$A^n = X \Lambda^n X^{-1},$$
+
+where $\Lambda^n$ is obtained by raising each diagonal entry of $\Lambda$ to the power $n$.
+
+This property is particularly useful in applications involving matrix exponentiation, such as in differential equations or Markov chains.
