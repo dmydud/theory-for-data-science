@@ -412,3 +412,35 @@ $$A^n = X \Lambda^n X^{-1},$$
 where $\Lambda^n$ is obtained by raising each diagonal entry of $\Lambda$ to the power $n$.
 
 This property is particularly useful in applications involving matrix exponentiation, such as in differential equations or Markov chains.
+
+## Singular Value Decomposition (SVD)
+
+The Singular Value Decomposition (SVD) of a matrix \( A \) is a factorization of the form:
+
+$$A = U \Sigma V^T,$$
+
+where:
+- $U$ is an orthogonal matrix ($U^T U = I$) whose columns are the left singular vectors of $A$,
+- $V$ is an orthogonal matrix ($V^T V = I$) whose columns are the right singular vectors of $A$,
+- $\Sigma$ is a diagonal matrix containing the singular values of $A$, denoted by $\sigma_1, \sigma_2, \ldots, \sigma_r$, with $r = \text{rank}(A)$.
+
+The decomposition satisfies the relation:
+
+$$AV = U \Sigma.$$
+
+### Singular Values and Their Properties
+
+The singular values of $A$ satisfy:
+
+$$\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r > 0.$$
+
+- The number of nonzero singular values $r$ equals the rank of $A$.
+- The singular values measure the stretching effect of the matrix $A$ on vectors.
+
+### Geometric Interpretation
+
+$U$ and $V$ represent rotations (or possible reflections) in their respective spaces. $V$ maps unit vectors to principal axes of the transformation induced by $A$. $U$ maps the principal axes back to the transformed space.
+
+The diagonal entries of $\Sigma$ scale the corresponding singular vectors. $\Sigma$ transforms a unit circle (or sphere in higher dimensions) into an ellipse (or ellipsoid).
+
+Thus, $\Sigma$ represents the stretching of the circle, while $U$ and $V$ handle the rotations or reflections.
