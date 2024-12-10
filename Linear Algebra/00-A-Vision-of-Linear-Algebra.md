@@ -175,16 +175,33 @@ For $A\mathbf{x} = 0$, the number of independent solutions is $n - r$.
 
 ## Null Space
 
-When we solve $A\mathbf{x} = 0$, where $A$ is an $m \times n$ matrix, the system can be expressed as:
+The set of all solutions $\mathbf{x}$ to $A\mathbf{x} = 0$ forms the **null space** of $A$, which is a subspace of $\mathbb{R}^n$. The null space, also known as the kernel of $A$, contains all vectors $\mathbf{x}$ such that the linear transformation represented by $A$ maps $\mathbf{x}$ to the zero vector.
+
+### Example
+
+Consider the matrix:
+
+$$R = \begin{bmatrix}1 \& 0 \& 3 \& 5 \\\ 0 \& 1 \& 4 \& 6 \end{bmatrix}$$
+
+Solving $R\mathbf{x} = 0$, we find two special solutions:
+
+$$\mathbf{s}_1 = \begin{bmatrix} -3 \\\ -4 \\\ 1 \\\ 0 \end{bmatrix} \quad \text{and} \quad 
+\mathbf{s}_2 = \begin{bmatrix} -5 \\\ -6 \\\ 0 \\\ 1 \end{bmatrix}.$$
+
+Both solutions satisfy $R\mathbf{s}_1 = 0$ and $R\mathbf{s}_2 = 0$. Hence, $\mathbf{s}_1$ and $\mathbf{s}_2$ span the null space of $R$.
+
+### Null Space Properties
+
+When solving $A\mathbf{x} = 0$, where $A$ is an $m \times n$ matrix, the system can be expressed as:
 
 $$\begin{bmatrix}\text{row } 1 \\\ \dots \\\  \text{row } m\end{bmatrix}\begin{bmatrix}x\end{bmatrix}=\begin{bmatrix}0 \\\ \dots \\\ 0 \end{bmatrix}\tag{1.5}$$
-
-The set of all solutions $\mathbf{x}$ to $A\mathbf{x} = 0$ forms the **null space** of $A$, which is a subspace of $\mathbb{R}^n$.
 
 From Equation (1.5), the nullspace has the following key properties:
 
 - Every vector $\mathbf{x}$ in the nullspace of $A$ is orthogonal to the row space of $A$. This can be expressed as:
+
 $$N(A) \perp C(A^T)$$
+
 where $C(A^T)$ is the column space of $A^T$, which corresponds to the row space of $A$.
 
 - Every vector $\mathbf{y}$ in the null space of $A^T$ is orthogonal to the column space of $A$:
